@@ -16,6 +16,8 @@ INNER JOIN salaries as s
 ON (ce.emp_no = s.emp_no)
 WHERE (t.to_date = '9999-01-01')
 -- By using this 'WHERE' filter, we can ensure that all old titles for current employees will be excluded
+ORDER BY ce.emp_no;
+
 
 --Part 2
 --Only the Most Recent Titles
@@ -38,4 +40,5 @@ FROM employees as e
 INNER JOIN titles as t
 ON e.emp_no = t.emp_no
 WHERE (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31')
-	AND (t.to_date = '9999-01-01');
+	AND (t.to_date = '9999-01-01')
+ORDER BY e.emp_no;
