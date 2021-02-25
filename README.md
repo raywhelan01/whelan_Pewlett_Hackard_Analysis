@@ -14,20 +14,20 @@ For this query, I accessed the "current_emp" table created during the module, th
 This query return 33,118 employees.
 
 #### Code and output screenshot
-SELECT ce.emp_no,
-	ce.first_name,
-	ce.last_name,
-	t.title,
-	t.from_date,
-	s.salary
-INTO retiring_titles
-FROM current_emp as ce
-INNER JOIN titles as t
-ON (ce.emp_no = t.emp_no)
-INNER JOIN salaries as s
-ON (ce.emp_no = s.emp_no)
-WHERE (t.to_date = '9999-01-01')
--- By using this 'WHERE' filter, we can ensure that all old titles for current employees will be excluded
+SELECT ce.emp_no,</br>
+	ce.first_name,</br>
+	ce.last_name,</br>
+	t.title,</br>
+	t.from_date,</br>
+	s.salary</br>
+INTO retiring_titles</br>
+FROM current_emp as ce</br>
+INNER JOIN titles as t</br>
+ON (ce.emp_no = t.emp_no)</br>
+INNER JOIN salaries as s</br>
+ON (ce.emp_no = s.emp_no)</br>
+WHERE (t.to_date = '9999-01-01')</br>
+-- By using this 'WHERE' filter, we can ensure that all old titles for current employees will be excluded</br>
 ORDER BY ce.emp_no;
 
 ![Query1](https://github.com/raywhelan01/whelan_Pewlett_Hackard_Analysis/blob/master/Query%20Screenshots/Query%201.png)
@@ -36,11 +36,11 @@ ORDER BY ce.emp_no;
 
 
 #### Code and output screenshot
-Select COUNT (rt.emp_no), rt.title
-INTO retiring_title_count
-FROM retiring_titles as rt
-GROUP BY rt.title
-ORDER BY rt.title;
+Select COUNT (rt.emp_no), rt.title</br>
+INTO retiring_title_count</br>
+FROM retiring_titles as rt</br>
+GROUP BY rt.title</br>
+ORDER BY rt.title;</br>
 
 ![Query 2](https://github.com/raywhelan01/whelan_Pewlett_Hackard_Analysis/blob/master/Query%20Screenshots/Query%202.png)
 
@@ -51,18 +51,18 @@ For this query, I accessed the original "employees" database and the "titles" da
 This query returned 1,549 employees.
 
 #### Code and output screenshot
-SELECT e.emp_no,
-	e.first_name,
-	e.last_name,
-	t.title,
-	t.from_date,
-	t.to_date
-INTO potential_mentees
-FROM employees as e
-INNER JOIN titles as t
-ON e.emp_no = t.emp_no
-WHERE (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31')
-	AND (t.to_date = '9999-01-01')
+SELECT e.emp_no,</br>
+	e.first_name,</br>
+	e.last_name,</br>
+	t.title,</br>
+	t.from_date,</br>
+	t.to_date</br>
+INTO potential_mentees</br>
+FROM employees as e</br>
+INNER JOIN titles as t</br>
+ON e.emp_no = t.emp_no</br>
+WHERE (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31')</br>
+	AND (t.to_date = '9999-01-01')</br>
 ORDER BY e.emp_no;
 
 ![Query 3](https://github.com/raywhelan01/whelan_Pewlett_Hackard_Analysis/blob/master/Query%20Screenshots/Query%203.png)
