@@ -11,7 +11,7 @@ First, I started by creating an entity relationship diagram for Pewlett-Hackard'
 
 For this query, I accessed the "current_emp" table created during the module, the "title" table, and the "salary" table to create a new table called "retiring_titles". This table holds the Employee Number, first and last name, title, from_date, and salary of all employees nearing retirement. The 'WHERE' condition in the query filters out all duplicate entries from the 'title' table, ensuring our table only shows current employee titles.
 
-This query return 33,118 employees.
+This query returned 33,118 employees, and is saved as "retiring_titles" in the 'Query' folder.
 
 #### Code and output screenshot
 SELECT ce.emp_no,</br>
@@ -34,6 +34,9 @@ ORDER BY ce.emp_no;
 
 ### Query 2: Only the Most Recent Titles
 
+For this query, I accessed the "retiring_titles" table created in the last query and performed a county operation to return a new table showing how many employees of each job title were retiring. This query showed that the 33,118 retiring employees have one of seven different job titles, as shown below.
+
+This query is saved as "retiring_title_count" in the 'Query' folder.
 
 #### Code and output screenshot
 Select COUNT (rt.emp_no), rt.title</br>
@@ -48,7 +51,7 @@ ORDER BY rt.title;</br>
 
 For this query, I accessed the original "employees" database and the "titles" database. Similarly to how we identified the employees near retirement, I filtered for a slightly younger group of employees who could be eligible mentees in a mentorship program. Again, I also filtered to ensure no duplicate entries would return and employees would only be shown with their current title.
 
-This query returned 1,549 employees.
+This query returned 1,549 employees, and is saved as "potential_mentees" in the 'Query' folder.
 
 #### Code and output screenshot
 SELECT e.emp_no,</br>
@@ -66,3 +69,5 @@ WHERE (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31')</br>
 ORDER BY e.emp_no;
 
 ![Query 3](https://github.com/raywhelan01/whelan_Pewlett_Hackard_Analysis/blob/master/Query%20Screenshots/Query%203.png)
+
+
