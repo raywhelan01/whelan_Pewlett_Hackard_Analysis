@@ -30,6 +30,7 @@ WHERE (t.to_date = '9999-01-01')
 -- By using this 'WHERE' filter, we can ensure that all old titles for current employees will be excluded
 ORDER BY ce.emp_no;
 
+![Query1](https://github.com/raywhelan01/whelan_Pewlett_Hackard_Analysis/blob/master/Query%20Screenshots/Query%201.png)
 
 ### Query 2: Only the Most Recent Titles
 
@@ -41,6 +42,7 @@ FROM retiring_titles as rt
 GROUP BY rt.title
 ORDER BY rt.title;
 
+![Query 2](https://github.com/raywhelan01/whelan_Pewlett_Hackard_Analysis/blob/master/Query%20Screenshots/Query%202.png)
 
 ### Query 3: Who's Ready for a Mentor?
 
@@ -62,3 +64,5 @@ ON e.emp_no = t.emp_no
 WHERE (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31')
 	AND (t.to_date = '9999-01-01')
 ORDER BY e.emp_no;
+
+![Query 3](https://github.com/raywhelan01/whelan_Pewlett_Hackard_Analysis/blob/master/Query%20Screenshots/Query%203.png)
